@@ -1,12 +1,12 @@
 # Home Lab
 
-## This README.md
+## README.md
 
 Overview of the homelab project, its objectives, and a high-level description of each component.
 
 ## TIMELINE.md
 
-[This](TIMELINE.md) file will contain a basic overview of the timeline of when things were added to the home lab, as well as a link to more detailed documentation of each item (if needed).
+[This](./TIMELINE.md) file will contain a basic overview of the timeline of when things were added to the home lab, as well as a link to more detailed documentation of each item (if needed).
 
 ## Section-level Files
 
@@ -27,7 +27,7 @@ Notice the [START.md](START.md), which contains the starting point before any ad
 
 ## Plans
 
-As of writing initially, nothing concrete had been established. The starting home network setup I had is contained in the START.md file in this repository.
+As of writing this initially, nothing concrete had been established. The starting home network setup I had is contained in the START.md file in this repository.
 
 The eventual goal, and what I have on my resume, is the following:
 
