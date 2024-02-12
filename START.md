@@ -28,7 +28,7 @@ My wife's laptop is the semi-dedicated streaming/TV watching device, and it conn
 
 #### Server-ish? Devices
 
-I have an old Intel i5-6500 laptop with 8Gb of RAM, and 1GB networking that I've installed Proxmox on to play around with before dipping my toes into any more purchasing.
+I have an old Intel i5-6500 laptop with 8Gb of RAM, and 1GB networking that I've installed Proxmox on to play around with before dipping my toes into any more purchasing. The name of this machine is "lapprox" which is a play on "laptop" and "Proxmox." I am very clever, I know. lapprox was configured to have a static IP address, which I also set as a DHCP reservation (for ease of remembering) in the Asus router. It has a very small, ~100GB SSD that Proxmox itself is loaded on, as well as a 1TB hard drive that I set up to be VM storage, along with any ISOs or anything else I need to store locally. This was good experience in learning how to set up Linux devices, especially non-standard distributions, over the command line.
 
 #### IOT Devices
 

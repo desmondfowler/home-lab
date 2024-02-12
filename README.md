@@ -4,27 +4,30 @@
 
 Overview of the homelab project, its objectives, and a high-level description of each component.
 
-## Component-level README.md's
+## TIMELINE.md
 
-More detailed information about each component. For example, in the network-stack directory, information about the network setup, including hardware and software used, configuration guides, and troubleshooting tips. The general layout of the documentation will be as follows:
+[This](TIMELINE.md) file will contain a basic overview of the timeline of when things were added to the home lab, as well as a link to more detailed documentation of each item (if needed).
 
-.
-├── README.md
-├── cybersecurity
-│   └── README.md
-├── database
-│   └── README.md
-├── network-stack
-│   ├── README.md
-│   └── START.md
-├── services
-│   └── README.md
-└── webpage
-    └── README.md
+## Section-level Files
+
+As mentioned in the above, these files contain the detailed information about each section. For example, in the network-stack directory, information about the network setup, including hardware and software used, configuration notes, and troubleshooting tips are housed. The general layout of this repository is as follows:
+
+| Directory        | Documentation File          | Description |
+|------------------|-----------------------------|-------------|
+| root             | [README.md](README.md)      | What you're reading! |
+| root             | [START.md](START.md)        | Starting point, before any additions. |
+| root             | [TIMELINE.md](TIMELINE.md)  | Brief timeline describing progress. |
+| cybersecurity    | [SECURITY.md](./cybersecurity/SECURITY.md)| Security documentation. |
+| database         | [DATABASE.md](./database/DATABASE.md)    | Database documentation. |
+| network-stack    | [NETWORK.md](./network-stack/NETWORK.md)   | Network documentation. |
+| services         | [SERVICES.md](./services/SERVICES.md)      | Service documentation. |
+| webpage          | [WEBPAGE.md](./webpage/WEBPAGE.md)         | Webpage documentation. |
+
+Notice the [START.md](START.md), which contains the starting point before any additions to the home lab project.
 
 ## Plans
 
-As of writing (current date 2/7/2024), nothing concrete has been established. The current home network setup I have is contained in the START.md file in the network-stack directory of this repository.
+As of writing initially, nothing concrete had been established. The starting home network setup I had is contained in the START.md file in this repository.
 
 The eventual goal, and what I have on my resume, is the following:
 
@@ -38,4 +41,4 @@ The eventual goal, and what I have on my resume, is the following:
   - Segregated CCTV System: Planning to set up a dedicated home CCTV network with an NVR, potentially on a separate VLAN or completely air-gapped from the main LAN to enhance security and minimize risks.
 - Documentation and Insights: Detailed documentation of the home lab setup, including problem-solving processes and challenges overcome, is thoroughly described on my GitHub repository “home-lab.”
 
-Now, of course, I don't have anything past what I have in ./network-stack/START.md but I plan to add that. I also don't know which services I want to run.
+I didn't orignally have anything past what I had in [START.md](./START.md) but I have started to add to that.
