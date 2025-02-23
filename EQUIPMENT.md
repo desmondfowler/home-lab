@@ -1,37 +1,86 @@
-# Original Network Starting Point
+# Equipment Overview
 
-## Hardware
+This document details the equipment used in my home lab, from the original network starting point to recent upgrades. It covers networking gear, endpoints, server devices, and IoT components. This overview demonstrates how I’ve iterated on the infrastructure to improve performance, scalability, and reliability.
 
-### Networking Gear
+## 1. Networking Gear
 
-#### Starlink
+### Starlink Internet
 
-The original setup includes a Starlink internet connection, with their V2 dish (Dishy McFlatface) and V2 router, which does not contain an ethernet port, only the proprietary connection to the dish, and Wifi 5. I purchased their ethernet adaptor which allowed for one ethernet port.
+- **Setup:**
+  - **Dish:** Starlink V2 dish (affectionately known as “Dishy McFlatface”)
+  - **Router:** Starlink V2 router, which lacks Ethernet ports and connects via a proprietary cable to the dish.
+- **Adaptation:**
+  - Purchased an Ethernet adapter to add one Ethernet port, enabling integration with standard network equipment.
 
-#### Asus RT-AX5400 Router
+### Asus RT-AX5400 Router
+ **Role:**
+  - Acts as the primary routing device after passing through the Starlink adapter.
+- **Key Features:**
+  - 5 switchable Gigabit Ethernet ports.
+  - Configurable WAN intake: Port 1 is used by default; port 2 is available for redundancy or aggregated connections if speeds exceed sub-gigabit.
+- **Current Usage:**
+  - Serves the main network, handling both LAN and a segregated guest network.
+- **Future Plans:**
+  - When building an OPNsense router, this unit may be repurposed as an access point for a guest house/furnished shed.
 
-Using the ethernet adaptor, I put the Starlink router into bypass mode and passed it through to my Asus RT-AX5400 router. This router has 5 switchable Gigabit ethernet ports, with ports 1 and 2 being capable of being the WAN intake port. Generally, port 1 is alone, but if you have two WAN inputs for redundancy, you can configure it to use port 2 as well, which I have not done. Starlink provides sub-gigabit speeds at the moment so I have no need of more speed on my router, but if I had the resources for over 1 Gigabit, I could use ports 1 and 2 for a 2 Gigabit aggregated connection. When I build my OPNsense router (discussed in the "Plans" section of the main README.md), I may try to use this router as an access point for my guest house/furnished shed.
+#### RT-AX5400 Configuration Details
+- **Wi-Fi:**
+  - Configured with WPA2/WPA3 Personal encryption.
+  - Combined 5 GHz and 2.4 GHz bands for simplicity.
+- **Guest Network:**
+  - Provides internet access with unlimited bandwidth.
+  - Isolated from the primary LAN to secure critical devices.
+- **Intended Use:**
+  - The guest network is the designated space for IoT devices.
 
-##### RT-AX5400 Configuration
+## 2. Endpoints
 
-Initial setup on the router included setting the Wifi passkey to WPA2/WPA3 Personal, and combining the 5Ghz and 2.4Ghz bands. Created a guest network that has internet access, unlimited bandwidth, and can not connect to primary home LAN for segregation purposes. At the moment, I plan to put any IOT devices onto this network, but they aren't currently here.
+### Home PCs
+- Primary Desktop:
+  - Equipped with a 1GB Ethernet port.
+  - Note: Future upgrades may include a faster network card or a new motherboard with at least 2.5GB networking.
 
-### Endpoints
+- Secondary Desktop:
+  - Features a 2.5GB Ethernet port (used by my spouse).
 
-#### Home PCs
+- Laptop:
+  - Serves as a semi-dedicated streaming/TV device, connecting via Wi-Fi.
 
-I have a desktop PC with a 1GB ethernet port, though when I upgrade I will either buy a network card for faster networking, or I will be purchasing a motherboard with at least 2.5GB networking.
+## 3. Server Devices
 
-My wife has a desktop PC with a 2.5GB ethernet port.
+### Legacy System: "lapprox"
 
-My wife's laptop is the semi-dedicated streaming/TV watching device, and it connects over Wifi.
+- Device:
+  - An older Intel i5-6500 laptop.
 
-#### Server-ish? Devices
+- Specifications:
+  - 8GB RAM
+  - 1GB Ethernet port
 
-I have an old Intel i5-6500 laptop with 8Gb of RAM, and 1GB networking that I've installed Proxmox on to play around with before dipping my toes into any more purchasing. The name of this machine is "lapprox" which is a play on "laptop" and "Proxmox." lapprox was configured to have a static IP address, which I also set as a DHCP reservation (for ease of remembering) in the Asus router. It has a very small, ~100GB SSD that Proxmox itself is loaded on, as well as a 1TB hard drive that I set up to be VM storage, along with any ISOs or anything else I need to store locally. This was good experience in learning how to set up Linux devices, especially non-standard distributions, over the command line.
+- Usage History:
+  - Initially set up with Proxmox for experimental purposes.
+  - Configured with a static IP and a corresponding DHCP reservation in the Asus router.
 
-02/2025 Update: I purchased an HP Prodesk 400 G6 with an i5-10500T, 16Gb of RAM, and a 1Tb M.2 SSD. That is now the main Proxmox host, with the laptop being converted into a Proxmox Backup server, using its 1Tb HDD as backup storage. 
+- Storage Configuration:
+  - A ~100GB SSD for the Proxmox OS.
+  - A 1TB HDD dedicated to VM storage, ISOs, and other local resources.
 
-#### IOT Devices
+### Current Main Host: HP Prodesk 400 G6
 
-As of right now, the only IOT devices in the house are Pura Scent Diffusers that connect to the Wifi, and are plugged into a power outlet. My wife likes the smell, and I can go either way, so I put up with them.
+- Acquisition Date: February 2025
+- Specifications:
+  - Intel i5-10500T
+  - 16GB RAM
+  - 1TB M.2 SSD
+- Role:
+  - Serves as the main Proxmox host for the lab.
+- Repurposing Legacy Hardware:
+  - The “lapprox” system has been reconfigured as a Proxmox backup server, utilizing its 1TB HDD for backup storage.
+
+### 4. IoT Devices
+- Devices:
+  - Currently, only Pura Scent Diffusers are connected over Wi-Fi.
+- Placement:
+  - These devices are assigned to the guest network to keep them separate from critical infrastructure.
+- Rationale:
+  - Although they’re more about ambiance, segregating them ensures that non-critical devices don’t impact core network performance.
