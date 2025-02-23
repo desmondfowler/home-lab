@@ -1,0 +1,5 @@
+proxmox_endpoint  = "https://your-proxmox-server:8006/"
+proxmox_api_token = "terraform@pve!TOKENID=your-secret-token"
+proxmox_node = "your-node-name"
+template_vm_id = 000 // ID of the template VM
+ssh_key = "ssh-rsa your-ssh-key"
